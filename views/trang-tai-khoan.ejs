@@ -1,0 +1,37 @@
+    <%include header%>
+    <div class="container-fluid px-4" style="background-color: rgba(128, 128, 128, 0.169);">
+        <div class="row">
+            <div class="col-3 my-4" style="width: 300px; background-color: white;">
+                <div class="thongtinchungkh mt-3">
+                    <div class="thongtinanh">
+                        <img src="/images/anhdaidien.jpg">
+                    </div>
+                    <div class="thongtintk">
+                        <span class="tenkhang"><%= nguoidung.TenKH%></span>
+                        <a href="/users/thong-tin" class="suahoso"><i class="fa fa-pencil" aria-hidden="true"></i> Sửa hồ sơ</a>
+                    </div>
+                </div>
+                <div class="list_taikhoan" >
+                    <ul>
+                        <li><a href="/users/tai-khoan"><i class="far fa-user" aria-hidden="true"></i> Trang tài khoản</a></li>
+                        <li><a href="/users/thong-tin"><i class="fas fa-user-edit"></i> Thông tin cá nhân</a></li>
+                        <li><a href="/cart/don-hang"><i class="far fa-clipboard" aria-hidden="true"></i> Đơn hàng</a></li>
+                        <li><a href="/users/thay-doi-mat-khau"><i class="fas fa-lock"></i> Thay đổi mật khẩu</a></li>
+                        <li><a href=""><i class="far fa-bell" aria-hidden="true"></i> Thông báo</a></li>
+                        <li><a href="/users/dang-xuat"><i class="fa fa-sign-in" aria-hidden="true"></i> Đăng xuất</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-9 text-center">
+                <div class="nentaikhoan my-4">
+                    <img src="/images/pngfind.com-team-icon-png-1068093.png">
+                    <div class="chaomung">
+                        Khách hàng <span><%=nguoidung.TenKH%></span>
+                        <div class="motataikhoan">đến với trang bán hàng điện thoại di động </div>
+                    </div>
+                    <a href="/trang-chu"><i class="fa fa-home" aria-hidden="true"></i> Trang chủ</a>
+                </div>
+            </div>
+        </div>
+    </div>
+   <%include footer%>

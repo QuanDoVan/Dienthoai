@@ -1,0 +1,80 @@
+    <%include header%>
+    <div class="container-fluid mt-3">
+        <div class="row my-3">
+            <div class="col-3" style="font-size: 25px; font-weight: bold;">
+                Tin tức
+            </div>
+            <div class="col-9 phantrang text-right">
+                <ul>
+                    <li><a href="">Trang chủ</a> / </li>
+                    <li>Tin tức</li>
+                </ul>
+            </div>
+        </div>
+        <div class="tintuc">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <form action="" class="search-form wow fadeInRightBig">
+                            <input type="text" class="search-field" placeholder="Tìm kiếm">
+                            <input type="submit" class="search-submit">
+                        </form>
+                        <div class="widget wow fadeInRightBig">
+                            <div class="col-12 mt-3">
+                                <div class="li-section-title">
+                                    <h2>
+                                        <span>Danh mục</span>
+                                    </h2>
+                                </div>
+                            </div>
+                            <ul>
+                                <%data1.forEach(function(dstheloai) {%>
+                                    <li><a href=""><%=dstheloai.TenTL%> <span class="so">(03)</span></a></li>
+                                <%})%>
+                            </ul>
+                        </div>
+                        <div class="widget widget_entries wow fadeInRightBig">
+                            <div class="col-12 mt-3">
+                                <div class="li-section-title">
+                                    <h2>
+                                        <span>Tin tức gần đây</span>
+                                    </h2>
+                                </div>
+                            </div>
+                            <%data3.forEach(function(tinmoinhat) {%>
+                            <a href="" class="mottinnho">
+                                <img src="<%=tinmoinhat.HinhAnh%>" alt="">
+                                <b><%=tinmoinhat.TieuDeTin%></b>
+                                <i><%=tinmoinhat.NgayDang%></i>
+                            </a>
+                            <%})%>
+                        </div>
+                    </div>
+                    <div class="col-sm-9">
+                        <div class="row">
+                            <%data2.forEach(function(dstin) {%>
+                            <div class="col-sm-6">
+                                <div class="mottinchuan wow fadeIn">
+                                    <a href="/news/chi-tiet-tin-tuc/<%=dstin.MaTinTuc%>" class="anhtin">
+                                        <img src="<%=dstin.HinhAnh%>" alt="" width="100%">
+                                    </a>
+                                    <div class="noidungtin">
+                                        <h3><a href="/news/chi-tiet-tin-tuc/<%=dstin.MaTinTuc%>"><%=dstin.TieuDeTin%></a></h3>
+                                        <div class="thongsotin">
+                                            <ul>
+                                                <li><a href=""><i class="fa fa-user" aria-hidden="true"></i> Admin</a></li>
+                                                <li><a href=""><i class="far fa-comment"></i> 10 comment</a></li>
+                                                <li><a href=""><i class="far fa-calendar-alt"></i> <%= dstin.NgayDang%></a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="trichdan"><%=dstin.TomTat%></div>
+                                        <a href="/news/chi-tiet-tin-tuc/<%=dstin.MaTinTuc%>" class="doctin">Read More &#8594;</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <%})%>
+                        </div>
+                    </div>
+                </div>
+        </div>          
+    </div>
+    <%include footer%>

@@ -1,0 +1,225 @@
+    <%include header%>
+   <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 mt-3">
+                <div class="row ">
+                    <div class="col-10" style="font-size: 25px; font-weight: bold;">
+                        Thanh toán
+                    </div>
+                    <div class="col-2 phantrang text-right">
+                        <ul>
+                            <li><a href="">Trang chủ</a> / </li>
+                            <li>Thanh toán</li>
+                        </ul>
+                    </div>
+                    <div class="col-12">
+                        <form action="/payment/thanh-toan" method="POST">
+                        <div class="row">
+                            <div class="col-5 thongtinkhdh">
+                                <div class="thongtinmh">Thông tin mua hàng</div><hr>
+                                <div class="form-group">
+                                    <label>Email <span style="color: red;">*</span></label>
+                                  <input type="email" class="email" name="email" id="" value="<%=nguoidung.Email%>" aria-describedby="emailHelpId" placeholder="Nhập email">
+                                </div>
+                                <div class="form-group">
+                                    <label>Tên khách hàng <span style="color: red;">*</span></label>
+                                    <input type="text" class="tenkh" name="tenKH" id="" value="<%=nguoidung.TenKH%>" aria-describedby="helpId" placeholder="Nhập tên khách hàng">
+                                </div>
+                                <div class="form-group">
+                                    <label>Số điện thoại <span style="color: red;">*</span></label>
+                                    <input type="text" class="sodt" name="dienThoai" id="" value="<%=nguoidung.DienThoai%>" aria-describedby="helpId" placeholder="Nhập số điện thoại">
+                                </div>
+                                <div class="form-group">
+                                    <label>Địa chỉ <span style="color: red;">*</span></label>
+                                    <input type="text" class="diachi" name="diaChi" id="" value="<%=nguoidung.DiaChi%>" aria-describedby="helpId" placeholder="Nhập địa chỉ">
+                                </div>
+                                <div class="form-group">
+                                    <label>Chọn thành phố <span style="color: red;">*</span></label>
+                                  <select class="thanhpho" name="thanhPho" id="">
+                                    <option>-------Chọn-------</option>
+                                    <option value="Hà Nội">Hà Nội</option>
+                                    <option value="Đà Nẵng">Đà Nẵng</option>
+                                    <option value="TP. Hồ Chí Minh">Hồ Chí Minh</option>
+                                  </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Chọn quận huyện <span style="color: red;">*</span></label>
+                                    <select class="quanhuyen" name="quanHuyen" id="">
+                                      <option>-------Chọn-------</option>
+                                      <option value="Mê Linh">Mê Linh</option>
+                                      <option value="Bắc Từ Liêm">Bắc Từ Liêm</option>
+                                      <option value="Nam Từ Liêm">Nam Từ Liêm</option>
+                                    </select>
+                                </div><hr>
+                                <div class="form-group">
+                                    <label>Ghi chú đơn hàng</label>
+                                  <textarea class="motakh" name="ghiChu" id="" rows="3" placeholder="Ghi chú đơn hàng (tùy chọn)"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-7">
+                                <ul class="list-group nenthanhtoan">
+                                    <li class="list-group-item"><div class="tieude_dathang">ĐƠN HÀNG</div></li>
+                                    <li class="list-group-item">
+                                        <div class="sp_thanhtoan py-2">
+                                            <%data.forEach(function(sp) {%>
+                                            <div class="row">
+                                                <div class="col-2 text-center">
+                                                    <img src="<%=sp.HinhAnh%>" width="70%">
+                                                </div>
+                                                <div class="col-7 my-3 tensp_thanhtoan">
+                                                    <%=sp.TenSP%> <b>x <%=sp.SoLuong%></b>
+                                                </div>
+                                                <div class="col-3 my-3 text-right">
+                                                    <%= sp.DonGia.toLocaleString('vi-VN')%>đ
+                                                </div>
+                                            </div>
+                                            <%})%>
+                                            <div class="text-center" style="color: grey; font-size: 14px; font-style: italic;"><%= thongbao%></div>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <a href="" id="linknhap"><img src="/images/voucher.png"> Nhập mã giảm giá</i></a>
+                                        <%if(ttdonhang.MaGiamGia) {%>
+                                        <div class="text-right">
+                                            <span class="badge badge-success"><%=ttdonhang.MaGiamGia%></span>
+                                        </div>
+                                        <%} else {%>
+                                            <div class="text-right">
+                                                <span class="badge badge-success">Nhập mã giảm giá</span>
+                                            </div>
+                                        <%}%>
+                            
+                                        <form action="cart/ma-giam-gia" method="POST">
+                                        <div id="onhapma">
+                                            <input type="text" class="magiamgia" placeholder="Nhập mã giảm giá">
+                                            <input type="submit" class="btn btn-warning mt-2" value="Nhập mã">
+                                        </div>
+                                        <form>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <a href="" id="linkvc"><img src="/images/dollar-coin-2149.png"> Phương thức thanh toán</a>
+                                        <div class="text-right">
+                                            <scan class="tenvc"></scan>
+                                        </div>
+                                        <div id="chonvc">
+                                            <div class="accordion" id="accordionExample">
+                                                <div class="card" style="border: 0px">
+                                                    <div class="nut1" id="headingOne">
+                                                        <h2 class="mb-0">
+                                                        <button class="btn btn-outline-light linkthanhtoan" type="button" data-toggle="collapse" data-target="#nhom1" aria-expanded="true" aria-controls="collapseOne">                                      
+                                                        <div class="form-check">
+                                                            <input type="radio" class="form-check-input" name="radio" id="" value="PayPal"> PayPal
+                                                        </div>
+                                                        </button>
+                                                        </h2>
+                                                    </div>
+                                                    <div id="nhom1" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                                        <div class="card-body motaradio">
+                                                            Thực hiện thanh toán của bạn trực tiếp vào tài khoản ngân hàng của chúng tôi. Vui lòng sử dụng ID đơn đặt hàng của bạn làm tham chiếu thanh toán. Đơn đặt hàng của bạn sẽ không được giao cho đến khi tiền đã hết trong tài khoản của chúng tôi.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card" style="border: 0px">
+                                                    <div class="nut2" id="headingTwo">
+                                                        <h2 class="mb-0">
+                                                        <button class="btn btn-outline-light collapsed linkthanhtoan" type="button" data-toggle="collapse" data-target="#nhom2" aria-expanded="false" aria-controls="collapseTwo">
+                                                            <div class="form-check">
+                                                                <input type="radio" class="form-check-input" name="radio" id="" value="Chuyển khoản qua ngân hàng  " > Chuyển khoản qua ngân hàng  
+                                                            </div>
+                                                        </button>
+                                                        </h2>
+                                                    </div>
+                                                    <div id="nhom2" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                                                        <div class="card-body motaradio">
+                                                            Thực hiện thanh toán vào ngay tài khoản ngân hàng của chúng tôi. Vui lòng sử dụng Mã đơn hàng của bạn trong phần Nội dung thanh toán. Đơn hàng sẽ đươc giao sau khi tiền đã chuyển.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card" style="border: 0px">
+                                                    <div class="nut3" id="headingThree">
+                                                        <h2 class="mb-0">
+                                                        <button class="btn btn-outline-light collapsed linkthanhtoan" type="button" data-toggle="collapse" data-target="#nhom3" aria-expanded="false" aria-controls="collapseThree">
+                                                            <div class="form-check">
+                                                                <input type="radio" class="form-check-input" name="radio" id="" value="Thanh toán khi giao hàng (COD)" > Thanh toán khi giao hàng (COD)
+                                                            </div>
+                                                        </button>
+                                                        </h2>
+                                                    </div>
+                                                    <div id="nhom3" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                                                        <div class="card-body motaradio">
+                                                            Trả tiền mặt khi giao hàng
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <%if (ttdonhang.TongTien && ttdonhang.GiamTien && ttdonhang.ThanhTien) {%>
+                                        <div class="row">
+                                            <div class="col-6">Tạm tính</div>
+                                            <div class="col-6 text-right font-weight-bold"><%=ttdonhang.TongTien.toLocaleString('vi-VN')%>đ</div>
+                                            <div class="col-6">Phí ship</div>
+                                            <div class="col-6 text-right">Miễn phí vận chuyển</div>
+                                            <div class="thanhngang"></div>
+                                            <div class="col-6">Giảm giá</div>
+                                            <div class="col-6 text-right">-<%=ttdonhang.GiamTien.toLocaleString('vi-VN')%>đ</div>
+                                            <div class="col-6 mt-2"><b>Tổng cộng</b></div>
+                                            <div class="col-6 text-right text-success mt-2"><h5><%=ttdonhang.ThanhTien.toLocaleString('vi-VN')%>đ</h5></div>
+                                        </div>
+                                        <%} else {%>
+                                             <div class="row">
+                                            <div class="col-6">Tạm tính</div>
+                                            <div class="col-6 text-right font-weight-bold">0đ</div>
+                                            <div class="col-6">Phí ship</div>
+                                            <div class="col-6 text-right">Miễn phí vận chuyển</div>
+                                            <div class="thanhngang"></div>
+                                            <div class="col-6 mt-2"><b>Tổng cộng</b></div>
+                                            <div class="col-6 text-right text-success mt-2"><h5>0đ</h5></div>
+                                        </div>
+                                        <%}%>
+                                    </li>
+                                  </ul>
+                                  <a href="/cart/gio-hang" class="quaygiohang">Quay trở lại giỏ hàng</a>
+                                  <input type="submit" class="btn btn-primary my-3 nutthanhtoan" value="Đặt hàng">
+                            </div>
+                        </div>
+                    </form>
+                    </div>
+                </div>  
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid py-3 maunen mt-5">
+        <div class="row ">
+          <div class="col-3 text-center">
+              <div class="anhtieuchi">
+                <img src="/images/free-shipping-12.png" alt="">
+              </div>
+              <div class="tieudetieuchi">Giao hàng miễn phí</div>
+              <div class="motatieuchi">Và trả lại miễn phí. Xem thanh toán để biết ngày giao hàng.</div>
+            </div>
+            <div class="col-3 text-center">
+                <div class="anhtieuchi">
+                    <img src="/images/safe-online-payments-with-3-d-secure-secure-online-payment-icon-1177849.png" alt="">
+                </div>
+                <div class="tieudetieuchi">Thanh toán an toàn</div>
+                <div class="motatieuchi">Thanh toán bằng các phương thức thanh toán an toàn và phổ biến nhât thế giới.</div>
+            </div>
+            <div class="col-3 text-center">
+                <div class="anhtieuchi">
+                    <img src="/images/kindpng_7944727.png" alt="">
+                </div>
+                <div class="tieudetieuchi">Mua sắm với sự tự tin</div>
+                <div class="motatieuchi">Bảo vệ người mua của chúng tôi bao gồm việc mua hàng của bạn từ khi nhấp chuột đến khi giao hàng.</div>
+            </div>
+            <div class="col-3 text-center">
+                <div class="anhtieuchi">
+                    <img src="/images/pngwing.com.png" alt="">
+                </div>
+                <div class="tieudetieuchi">Trung tâm trợ giúp 24/7</div>
+                <div class="motatieuchi">Có một câu hỏi? Gọi cho Chuyên gia hoặc trò chuyện trực tuyến.</div>
+            </div>
+        </div>
+    </div>
+    <%include footer%>

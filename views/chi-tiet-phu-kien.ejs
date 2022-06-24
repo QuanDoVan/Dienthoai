@@ -1,0 +1,354 @@
+    <%include header%>
+    <div class="container-fluid maunen">
+        <div class="row">
+            <div class="col-md-12 phantrang text-left px-4 pt-3">
+                <ul>
+                    <li><a href="">Trang chủ</a> / </li>
+                    <li><a href="">Cửa hàng</a> / </li>
+                    <li><a href="">Phụ kiện</a> / </li>
+                    <li><%= link%></li>
+                </ul>
+            </div>
+            <div class="col-md-12">
+                <div class="row nen2">
+                        <div class="col-md-5 mb-2">
+                            <div class="slider1 slider-for">
+                                <div>
+                                    <img src="<%= datasp.HinhAnh%>" class="anhchitiet1" alt="" >
+                                </div>
+                                <div>
+                                    <img src="<%= datasp.HinhAnh%>" class="anhchitiet1" alt="" >
+                                </div>
+                                <div>
+                                    <img src="<%= datasp.HinhAnh%>" class="anhchitiet1" alt="" >
+                                </div>
+                                <div>
+                                    <img src="<%= datasp.HinhAnh%>" class="anhchitiet1" alt="" >
+                                </div>
+                                <div>
+                                    <img src="<%= datasp.HinhAnh%>" class="anhchitiet1" alt="" >
+                                </div>
+                            </div>
+                            <div class="slider1 slider-nav">
+                                <div class="anhchay">
+                                    <img src="<%= datasp.HinhAnh%>" class="anhchitiet2" alt="">
+                                </div>
+                                <div class="anhchay">
+                                    <img src="<%= datasp.HinhAnh%>" class="anhchitiet2" alt="">
+                                </div>
+                                <div class="anhchay">
+                                    <img src="<%= datasp.HinhAnh%>" class="anhchitiet2" alt="">
+                                </div>
+                                <div class="anhchay">
+                                    <img src="<%= datasp.HinhAnh%>" class="anhchitiet2" alt="">
+                                </div>
+                                <div class="anhchay">
+                                    <img src="<%= datasp.HinhAnh%>" class="anhchitiet2" alt="">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="chiase">
+                                            Chia sẻ: 
+                                            <a href="" class="messenger"><img src="/images/nessenger.png" alt=""></a>
+                                            <a href="" class="facebook"><img src="/images/facebook-2870.png" alt=""></a>
+                                            <a href="" class="instagram"><img src="/images/instagram-logo-8869.png" alt=""></i></a>
+                                            <a href="" class="twitter"><img src="/images/twitter-logo-2429.png" alt=""></a>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="thichsp">
+                                            <i class="fas fa-heart"></i>
+                                            <!-- <i class="far fa-heart"></i> -->
+                                            <div class="soluongthich">
+                                                Đã thích (100)
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+                            <form action="/cart/gio-hang/phu-kien" method="POST">
+                            <div class="thongtinchitietsp">
+                                <div class="chitiet_tensp">
+                                    <input type="hidden" value="<%= datasp.MaPK%>" name="masp">
+                                    <input type="hidden" value="<%= datasp.TenPK%>" name="tensp">
+                                    <h3><%= datasp.TenPK%></h3>
+                                </div>
+                                <div class="hangdienthoai pb-3">
+                                    Hãng điện thoại: <a href=""><%= datasp.TenDM%></a>
+                                </div>
+                                <div class="chitiet_solieu">
+                                    <div class="row">
+                                        <div class="col-md-4 ngaytao">Ngày tạo: <%= datasp.NgayTao%></div>
+                                        <div class="col-md-3 col-6 danhgia"><a href=""><%= sobl.SoBL%></a> đánh giá</div>
+                                        <div class="col-md-3 col-6 luotmua"><a href="">19</a> lượt mua</div>
+                                    </div>
+                                </div>
+                                <div class="chitiet_giatien">
+                                    <% if (datasp.GiamGia) {%>
+                                        <div class="giamgia"><del><%= datasp.GiaTien.toLocaleString('vi-VN')%>đ</del></div>
+                                        <div class="giatienchitiet"><%= datasp.GiamGia.toLocaleString('vi-VN')%>đ</div>
+                                    <%} else {%>
+                                        <div></div>
+                                        <div class="giatienchitiet"><%= datasp.GiamGia.toLocaleString('vi-VN')%>đ</div>
+                                    <%}%>
+                                </div>
+                                <div class="chitiet_vanchuyen">
+                                   <div class="row">
+                                        <div class="col-md-3 pt-1">Vận chuyển</div>
+                                        <div class="col-md-9 chitietvc">
+                                            <div class="freevc"><img src="/images/free-shipping-12.png" alt=""> Miễn phí vận chuyển</div>
+                                            <div class="chitietfreevc">Miễn phí vận chuyển cho đơn hàng trên 5.000.000đ</div>
+                                            <div class="vanchuyen"><img src="/images/truck-2047.png" alt=""> Vận chuyển tới <span class="diachi_vanchuyen">Hà Nội</span></div>
+                                            <div class="phivanchuyen"><img src="/images/dollar-coin-2149.png" alt=""> Phí vận chuyển <span class="tienvc">12500đ</span></div>
+                                        </div>
+                                   </div>
+                                </div>
+                                <div class="chitiet_soluong pt-3">
+                                    <div class="row">
+                                         <div class="col-md-3 col-4 pt-1">Số lượng</div>
+                                         <div class="col-md-2 col-3 pt-1">
+                                            <div class="cart-plus-minus cart-plus-minus1">
+                                                <input class="cart-plus-minus-box" value="1" type="text" name="soluong">
+                                            </div>
+                                         </div>
+                                        <div class="col-md-7 col-12 px-4 py-2"><div class="soluongcon" style="float: left"><%= datasp.SoLuong%> sản phẩm có sẵn</div></div>
+                                    </div>
+                                </div>
+                                 <div class="chitiet_nut mt-4">
+                                     <div class="themgiohang">
+                                        <button class="btn btn-outline-primary"><i class="fa fa-cart-plus"></i> Thêm vào giỏ hàng</button>
+                                     </div>
+                                     <div class="muahang">
+                                        <a href="/cart/gio-hang" class="btn btn-warning">Mua hàng</a>
+                                     </div>
+                                 </div>
+                                <div class="chinhsachmuahang">
+                                    <ul>
+                                        <li><a href=""><i class="far fa-check-square"></i> Chính sách bảo mật</a></li>
+                                        <li><a href=""><i class="fas fa-truck"></i> Chính sách giao hàng</a></li>
+                                        <li><a href=""><i class="fas fa-exchange"></i> Chính sách hoàn trả</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            </form>
+                        </div>
+                </div>
+            </div>
+            <div class="col-md-12 mt-2 nen2">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="row">
+                            <div class="col-md-12 nen3 mt-2">
+                                <div class="thongtinbosung_sp">
+                                    <div class="tab_mota hienthi_mota" data-chitiet="mota">Mô tả</div>
+                                    <div class="tab_mota" data-chitiet="thongtinct">Thông tin chi tiết</div>
+                                    <div class="tab_mota" data-chitiet="danhgia">Đánh giá (<%= sobl.SoBL%>)</div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 nen3 mt-2 mb-2 tabnoidung" id="mota">
+                                <p class="noidungmota"><%= datasp.MoTa%></p>
+                            </div>
+                            <div class="col-md-12 nen3 mt-2 mb-2 tabnoidung" id="thongtinct">
+                                <table class="table table-bordered table-hover table-striped bang">
+                                    <tbody>
+                                        <tr>
+                                            <td width="200px"><b>Trọng lượng</b></td>
+                                            <td><%= datasp.TrongLuong%></td>
+                                        </tr>
+                                        <tr>
+                                            <td width="200px"><b>Kích thước</b></td>
+                                            <td><%= datasp.KichThuoc%></td>
+                                        </tr>
+                                        <tr>
+                                            <td width="200px"><b>Kích cỡ</b></td>
+                                            <td><%= datasp.KichCo%></td>
+                                        </tr>
+                                        <tr>
+                                            <td width="200px"><b>Màu sắc</b></td>
+                                            <td><%= datasp.MauSac%></td>
+                                        </tr>
+                                    </tbody>  
+                                </table>
+                            </div>
+                            <div class="col-md-12 mt-2 mb-2 tabnoidung" id="danhgia">
+                                <div class="soluongdanhgia"><%= sobl.SoBL%> đánh giá cho <%= link%></div>
+                                <%binhluan.forEach(function(laybinhluan) {%>
+                                <div class="binhluan">
+                                    <div class="binhluan_anh">
+                                        <img src="/images/anhdaidien.jpg">
+                                    </div>
+                                    <div class="noidung_binhluan">
+                                        <div class="tennguoibinhluan"><a href=""><%= laybinhluan.TenKH%></a> - <i><%= laybinhluan.ThoiGian%></i></div> 
+                                        <div class="loibinhluan"><%= laybinhluan.NoiDungBL%></div>
+                                    </div>
+                                </div>
+                                <%})%>
+                                  <div class="formdanhgia text-right mt-3">
+                                    <form action="/products/binh-luan/phu-kien" method="POST">
+                                        <div class="form-group">
+                                            <textarea class="form-control motakh" name="ndbinhluan" id="" rows="4"></textarea>
+                                        </div>
+                                         <input type="hidden" value="<%= datasp.MaPK%>" name="masp">
+                                        <input type="hidden" value="<%= datasp.TenPK%>" name="tensp">
+                                        <button type="submit" class="btn btn-success">Đánh giá</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                       <div class="mt-2 mb-2">
+                            <div class="tieude_tintuc nen4_tieude">
+                                <i class="fa fa-pencil" aria-hidden="true"></i> TIN TỨC
+                            </div>
+                            <div class="cackhoitintuc">
+                                <div class="khoitintuc">
+                                    <img src="images/tintuc.jpg">
+                                    <span class="tieudetin">Tài khoản & đơn hàng</span>
+                                    <span class="thoigiantin">
+                                        <i class="fa fa-calendar-alt" aria-hidden="true"></i> 26 Th10 2014
+                                    </span>
+                                </div>
+                                <div class="khoitintuc">
+                                    <img src="images/tintuc.jpg">
+                                    <span class="tieudetin">Hình thức thanh toán</span>
+                                    <span class="thoigiantin">
+                                        <i class="fa fa-calendar-alt" aria-hidden="true"></i> 26 Th10 2014
+                                    </span>
+                                </div>
+                                <div class="khoitintuc">
+                                    <img src="images/tintuc.jpg">
+                                    <span class="tieudetin">Cách thức mua hàng</span>
+                                    <span class="thoigiantin">
+                                        <i class="fa fa-calendar-alt" aria-hidden="true"></i> 26 Th10 2014
+                                    </span>
+                                </div>
+                                <div class="khoitintuc">
+                                    <img src="images/tintuc.jpg">
+                                    <span class="tieudetin">Khuyến mại</span><br>
+                                    <span class="thoigiantin">
+                                        <i class="fa fa-calendar-alt" aria-hidden="true"></i> 26 Th10 2014
+                                    </span>
+                                </div>
+                            </div>
+                       </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid mt-3 nen2">
+                <div class="row">
+                    <div class="col-md-12 mt-3">
+                        <div class="li-section-title">
+                            <h2>
+                                <span>Sản phẩm liên quan</span>
+                            </h2>
+                        </div>
+                    </div>
+                    <div class="col-md-12" >
+                        <div class="row mx-auto thesp">
+                            <div class="owl-carousel">
+                                <%sptuongtu.forEach(function(sptt) { %>
+                                <div class="col-lg-12 col-md-4 col-sm-6 mt-40 text-center thesp">
+                                    <!-- single-product-wrap start -->
+                                    <div class="single-product-wrap">
+                                        <div class="product-image1 mx-auto">
+                                            <a href="single-product.html">
+                                                <img src="<%= sptt.HinhAnh%>" alt="Li's Product Image">
+                                            </a>
+                                        </div>
+                                        <div class="product_desc">
+                                            <div class="product_desc_info">
+                                                <div class="product-review">
+                                                    <h5 class="manufacturer">
+                                                        <a href="product-details.html"><%= sptt.TenDM%></a>
+                                                    </h5>
+                                                    <div class="rating-box">
+                                                        <ul class="rating">
+                                                            <li><i class="fa fa-star-o"></i></li>
+                                                            <li><i class="fa fa-star-o"></i></li>
+                                                            <li><i class="fa fa-star-o"></i></li>
+                                                            <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                            <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <h4><a class="product_name" href="single-product.html"><%=sptt.TenPK%></a></h4>
+                                                <div class="price-box">
+                                                    <span class="new-price"><%= sptt.GiaTien.toLocaleString('vi-VN')%>đ</span>
+                                                </div>
+                                            </div>
+                                            <div class="add-actions">
+                                                <ul class="add-actions-link">
+                                                    <li class="add-cart active"><a href="shopping-cart.html">Add to cart</a></li>
+                                                    <li><a href="#" title="quick view" class="quick-view-btn" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-eye"></i></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- single-product-wrap end -->
+                                </div>
+                                <%})%>
+                                <div class="thongbaods"><%= thongbao%></div>
+                            </div>    
+                        </div>
+                    </div>
+                </div>
+            </div> 
+            <div class="container-fluid py-3">
+                <div class="row ">
+                  <div class="col-md-3 text-center">
+                      <div class="anhtieuchi">
+                        <img src="/images/free-shipping-12.png" alt="">
+                      </div>
+                      <div class="tieudetieuchi">Giao hàng miễn phí</div>
+                      <div class="motatieuchi">Và trả lại miễn phí. Xem thanh toán để biết ngày giao hàng.</div>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <div class="anhtieuchi">
+                            <img src="/images/safe-online-payments-with-3-d-secure-secure-online-payment-icon-1177849.png" alt="">
+                        </div>
+                        <div class="tieudetieuchi">Thanh toán an toàn</div>
+                        <div class="motatieuchi">Thanh toán bằng các phương thức thanh toán an toàn và phổ biến nhât thế giới.</div>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <div class="anhtieuchi">
+                            <img src="/images/kindpng_7944727.png" alt="">
+                        </div>
+                        <div class="tieudetieuchi">Mua sắm với sự tự tin</div>
+                        <div class="motatieuchi">Bảo vệ người mua của chúng tôi bao gồm việc mua hàng của bạn từ khi nhấp chuột đến khi giao hàng.</div>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <div class="anhtieuchi">
+                            <img src="/images/pngwing.com.png" alt="">
+                        </div>
+                        <div class="tieudetieuchi">Trung tâm trợ giúp 24/7</div>
+                        <div class="motatieuchi">Có một câu hỏi? Gọi cho Chuyên gia hoặc trò chuyện trực tuyến.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+       $('.slider-for').slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            arrows: false,
+            fade: true,
+            asNavFor: '.slider-nav'
+        });
+        $('.slider-nav').slick({
+            slidesToShow: 4,
+            slidesToScroll: 1,
+            asNavFor: '.slider-for',
+            dots: true,
+            centerMode: true,
+            focusOnSelect: true
+        });
+    </script>
+  <%include footer%>

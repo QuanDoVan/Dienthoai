@@ -1,0 +1,82 @@
+    <%include header%>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-3 my-1" style="width: 300px; background-color: white;">
+                <div class="thongtinchungkh mt-3">
+                    <div class="thongtinanh">
+                        <img src="/images/anhdaidien.jpg">
+                    </div>
+                    <div class="thongtintk">
+                        <span class="tenkhang">Hoàng Thị Ánh Tuyết</span>
+                        <a href="" class="suahoso"><i class="fa fa-pencil" aria-hidden="true"></i> Sửa hồ sơ</a>
+                    </div>
+                </div>
+                <div class="list_taikhoan" >
+                    <ul>
+                        <li><a href="/users/tai-khoan"><i class="far fa-user" aria-hidden="true"></i> Trang tài khoản</a></li>
+                        <li><a href="/users/thong-tin"><i class="fas fa-user-edit"></i> Thông tin cá nhân</a></li>
+                        <li><a href="/cart/don-hang"><i class="far fa-clipboard" aria-hidden="true"></i> Đơn hàng</a></li>
+                        <li><a href="/users/thay-doi-mat-khau"><i class="fas fa-lock"></i> Thay đổi mật khẩu</a></li>
+                        <li><a href=""><i class="far fa-bell" aria-hidden="true"></i> Thông báo</a></li>
+                        <li><a href="/users/dang-xuat"><i class="fa fa-sign-in" aria-hidden="true"></i> Đăng xuất</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-9">
+                <div class="row">
+                    <div class="col-8">
+                        <div class="capnhatthongtintaikhoan">
+                            <div class="tieudecapnhat">Thay đổi mật khẩu</div>
+                            <small></small>
+                            <div class="taikhoancanhan">
+                                <form action="/users/thay-doi-mat-khau" method="POST">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <label>Mật khẩu hiện tại (bỏ trống nếu không đổi)</label>
+                                                <input type="password" class="matkhau" name="matkhaucu" aria-describedby="helpId" placeholder="Nhập mật khẩu cũ">
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <label>Mật khẩu mới (bỏ trống nếu không đổi)</label>
+                                                <input type="password" class="matkhau" name="matkhaumoi" aria-describedby="helpId" placeholder="Nhập mật khẩu mới">
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <label>Xác nhận mật khẩu mới</label>
+                                                <input type="password" class="matkhau" name="xacnhanmk" aria-describedby="helpId" placeholder="Nhập lại mật khẩu mới">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 text-center">
+                                            <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Lưu thay đổi</button>
+                                        </div>
+                                   </div>
+                                </form>
+                            </div>
+                        </div>
+                      </div>
+                    <div class="col-4  bg-white">
+                        <div class="capnhatthongtintaikhoan">
+                            <div class="tieudecapnhat">Ảnh đại diện</div>
+                            <small>Cập nhật ảnh đại diện</small>
+                            <div class="anhdaidientk">
+                                <!-- <img src="/images/anhdaidien.jpg" alt=""> -->
+                                <div class="form-group">
+                                  <label class="custom-file">
+                                    <input type="file" name="" id="" placeholder="" class="custom-file-input" aria-describedby="fileHelpId">
+                                    <span class="custom-file-control">
+                                        <img src="/images/anhdaidien.jpg" alt="">
+                                    </span>
+                                  </label>
+                                </div>
+                                <div class="dinhdang">Định dạng:.JPEG, .PNG</div>
+                            </div>
+                        </div>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%include footer%>

@@ -1,0 +1,131 @@
+    <%include header%>
+    <div class="container">
+        <div class="row">
+            <div class="col-3 mt-3" style="font-size: 25px; font-weight: bold;">Giỏ hàng</div>
+            <div class="col-9 mt-3 phantrang text-right">
+                <ul>
+                    <li><a href="">Trang chủ</a> / </li>
+                    <li>Giỏ hàng</li>
+                </ul>
+            </div>
+            <div class="col-12 mt-3">
+                <form action="/cart/gio-hang/cap-nhat" method="POST">
+                <table class="table text-center">
+                    <thead class="bg-light">
+                        <tr>
+                            <th>Hình ảnh</th>
+                            <th>Sản phẩm</th>
+                            <th>Giá tiền</th>
+                            <th>Số lượng</th>
+                            <th>Tạm tính</th>
+                            <th>Xóa</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <%ds.forEach(function(dsgiohang){%>
+                        <tr class="giohang_table">
+                            <td><img src="<%= dsgiohang.HinhAnh%>" class="giohanganh"></td>
+                            <td class="tengiohang"><%= dsgiohang.TenSP%></td>
+                            <td><%= dsgiohang.DonGia.toLocaleString('vi-VN')%>đ</td>
+                            <td>
+                               <div class="cart-plus-minus">
+                                    <input class="cart-plus-minus-box" value="<%= dsgiohang.SoLuong%>" type="text" name="soluong">
+                                    <div class="dec qtybutton giam"><i class="fa fa-angle-down"></i></div>
+                                    <div class="inc qtybutton tang"><i class="fa fa-angle-up"></i></div>
+                                </div>
+                            </td>
+                            <td><%= (dsgiohang.SoLuong*dsgiohang.DonGia).toLocaleString('vi-VN')%>đ</td>
+                            <td>
+                                <a href="/cart/xoa/masp=<%= dsgiohang.MaSP%>"><i class="fas fa-trash-alt"></i></a>
+                                <input type="hidden" value="<%= dsgiohang.MaSP%>" name="masp">
+                                <input type="hidden" value="<%= dsgiohang.MaDH%>" name="madh">
+                            </td>
+                        </tr>
+                        <%})%>
+                    </tbody>
+                </table>
+                <hr>
+                <div class="col-12">
+                    <div class="row">
+                         <div class="my-3" style="float: left;">
+                            <input type="submit" class="btn btn-warning" id="capnhat" value="Cập nhật giỏ hàng"/>
+                        </div>
+                        <div class="tieptucmuahang my-3">
+                            <a href="/products/cua-hang/1">Tiếp tục mua sắm &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+                </form>
+            </div>
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-6">
+                        <form action="/cart/ma-giam-gia" method="POST">
+                            <div class="magiamgia my-3">
+                                <div class="form-group">
+                                <input type="text" class="form-control" name="magiamgia" id="" aria-describedby="helpId" placeholder="Mã ưu đãi">
+                                <%=thongbao%>
+                                </div>
+                            </div>
+                            <div class="nutgiamgia my-3">
+                                <input type="submit" class="btn btn-warning ml-3" value="Áp dụng">    
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <hr>
+            </div>
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-6"></div>
+                    <div class="col-6">
+                        <div class="tongtien mt-3">
+                            <h5 class="mb-4">Cộng giỏ hàng</h5>
+                            <table class="table">
+                                <%if (ttdonhang.TongTien) {%>
+                                <tbody>
+                                    <tr>
+                                        <td><b>Tạm tính</b></td>
+                                        <td><b><%= ttdonhang.TongTien.toLocaleString('vi-VN')%>đ</td>
+                                    </tr>
+                                    <%if (ttdonhang.GiamTien){%>
+                                         <tr>
+                                            <td><b>Giảm giá: </b></td>
+                                            <td><b><%= ttdonhang.GiamTien.toLocaleString('vi-VN')%>đ</b></td>
+                                        </td>
+                                    <%}%>
+                                    <%if (ttdonhang.ThanhTien) {%>
+                                         <tr>
+                                            <td><b>Thành tiền</b></td>
+                                            <td><b><%= ttdonhang.ThanhTien.toLocaleString('vi-VN')%>đ</b></td>
+                                        </tr>
+                                    <%} else {%>
+                                         <tr>
+                                            <td><b>Thành tiền</b></td>
+                                            <td><b>0đ</b></td>
+                                        </tr>
+                                    <%}%>
+                                </tbody>
+                                <%} else {%>
+                                <tbody>
+                                    <tr>
+                                        <td><b>Tạm tính</b></td>
+                                        <td><b>0đ</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>Thành tiền</b></td>
+                                        <td><b>0đ</b></td>
+                                    </tr>
+                                </tbody>
+                                <%}%>
+                            </table>
+                            <div class="capnhatgiohang my-3 text-center dichuyennutthanhtoan">
+                                <a href="/payment/thanh-toan">Tiến hành thanh toán</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<%include footer%>

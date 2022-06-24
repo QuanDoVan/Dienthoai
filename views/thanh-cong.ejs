@@ -1,0 +1,36 @@
+    <%include header%>
+    <div class="container-fluid px-4" style="background-color: rgba(128, 128, 128, 0.169);">
+        <div class="row">
+            <div class="col-3 my-4" style="width: 300px; background-color: white;">
+                <div class="thongtinchungkh mt-3">
+                    <div class="thongtinanh">
+                        <img src="/images/anhdaidien.jpg">
+                    </div>
+                    <div class="thongtintk">
+                        <span class="tenkhang">Hoàng Thị Ánh Tuyết</span>
+                        <a href="" class="suahoso"><i class="fa fa-pencil" aria-hidden="true"></i> Sửa hồ sơ</a>
+                    </div>
+                </div>
+                <div class="list_taikhoan" >
+                    <ul>
+                        <li><a href=""><i class="far fa-user" aria-hidden="true"></i> Trang tài khoản</a></li>
+                        <li><a href=""><i class="far fa-clipboard" aria-hidden="true"></i> Đơn hàng</a></li>
+                        <li><a href=""><i class="fas fa-lock    "></i> Thay đổi mật khẩu</a></li>
+                        <li><a href=""><i class="far fa-bell" aria-hidden="true"></i> Thông báo</a></li>
+                        <li><a href=""><i class="fa fa-sign-in" aria-hidden="true"></i> Đăng xuất</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-9 text-center">
+                <div class="nentaikhoan my-4">
+                    <i class="far fa-check-square tbao"></i>
+                    <div class="chaomung">
+                        <span style="color: green;"><%= ten%></span><br>
+                        <small><%= mota%></small>
+                    </div>
+                    <a href="<%= link%>"><i class="fa fa-user" aria-hidden="true"></i> <%=nut%></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%include footer%>

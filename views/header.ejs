@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title><%=title%></title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script type="text/javascript" src="/path/to/main.js" charset="utf-8"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <!--Phông chữ-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,400;0,500;1,500&display=swap" rel="stylesheet">
+    <!-- Owl Carousel -->
+    <link rel="stylesheet" href="/OwlCarousel2-2.3.4/docs/assets/owlcarousel/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="/OwlCarousel2-2.3.4/docs/assets/owlcarousel/assets/owl.theme.default.min.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="/OwlCarousel2-2.3.4/docs/assets/owlcarousel/owl.carousel.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css" integrity="sha512-wR4oNhLBHf7smjy0K4oqzdWumd+r5/+6QO/vDda76MW5iug4PT7v86FoEkySIJft3XA0Ae6axhIvHrqwm793Nw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css" integrity="sha512-6lLUdeQ5uheMFbWm3CP271l14RsX1xtx+J5x2yeIDkkiBpeVTNhTqijME7GgRKKi6hCqovwCoBTlRBEC20M8Mg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/stylesheets/index.css">
+    <link rel="stylesheet" href="/stylesheets/index1.css">
+    <link rel="stylesheet" href="/stylesheets/didong.css">
+</head>
+
+<body>
+    <script>
+        $(document).ready(function(){
+    $('.owl-carousel').owlCarousel({
+    //   loop:true,
+      margin:10,
+      nav:true,
+      autoplay: true,
+      navText: ["<div class='sangtrai'><img src='/images/sangtrai.png'></div>","<img class='sangphai' src='/images/sangphai.png'>"],
+      responsive:{
+          0:{
+              items:1
+          },
+          600:{
+              items:3
+          },
+          1000:{
+              items:5
+          }
+      }
+    });
+  });
+      
+      </script>
+    <!-- header1 -->
+    <div class="container-fluid header1">
+        <div class="row px-4">
+            <div class="col-md-4 dienthoaiheader">
+                Điện thoại: (+84) 361938599
+            </div>
+            <div class="col-md-8 text-right taikhoanheader">
+                <%if (nguoidung.TenKH) {%>
+                 <ul>
+                    <li><a href=""><i class="fa fa-bell" aria-hidden="true"></i> Thông báo</a></li> 
+                    <li><a href=""><i class="fa fa-question-circle" aria-hidden="true"></i> Hỗ trợ</a></li>
+                    <li>
+                        <a href="" class="tentaikhoan">
+                            <img src="/images/anhdaidien.jpg" alt="" class="anhdaidienheader">
+                            <span><%=nguoidung.TenKH%></span>
+                        </a>
+                    </li>
+                </ul>
+                <%} else {%>
+                 <ul>
+                    <li><a href="/users/dang-ky"><i class="fa fa-user-plus" aria-hidden="true"></i> Đăng ký</a></li> 
+                    <li><a href="/users/dang-nhap"><i class="fas fa-sign-in-alt"></i> Đăng nhập</a></li>
+                </ul>
+                <%}%>
+            </div>
+            <div class="hoptaikhoanuser ml-auto">
+                <ul>
+                    <li><a href="/users/thong-tin"><i class="fa fa-user" aria-hidden="true"></i> Tài khoản của tôi</a></li>
+                    <li><a href="/cart/don-hang"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Đơn mua</a></li>
+                    <li><a href="/users/dang-xuat"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a></li>
+                </ul>
+                <div class="hinhthoi"></div>
+            </div>
+        </div>
+    </div>
+    <!-- hết header1 -->
+    <!-- Header 2 -->
+    <div class="container-fluid header2">
+        <div class="row px-4">
+            <div class="col-md-3 col-12 logo">
+                <img src="/images/1.jpg" alt="">
+            </div>
+            <div class="col-md-6">
+                <form action="#" class="hm-searchbox">
+                    <input type="text" placeholder="Enter your search key ...">
+                    <button class="li-btn" type="submit"><i class="fa fa-search"></i></button>
+                </form>
+            </div>
+            <div class="col-md-3 giohangheader text-right">
+                <%if (ttdonhang.TongTien) {%>
+                    <div class="hopgiohang">
+                    <a href=""><i class="fa fa-shopping-basket" aria-hidden="true"></i> <span>|</span> <%= ttdonhang.TongTien.toLocaleString('vi-VN')%>đ</a>
+                    <div class="sltronggh"></div>
+                </div>
+                <%} else {%>
+                    <div class="hopgiohang">
+                    <a href=""><i class="fa fa-shopping-basket" aria-hidden="true"></i> <span>|</span> 0đ</a>
+                    <div class="sltronggh"></div>
+                </div>
+                <%}%>
+                <div class="chitiethopgh">
+                    <div class="chitiethopgh_giohang"></div>
+                    <div class="spthem">Sản phẩm mới thêm</div>
+                    <%ds.forEach(function(ds) {%>
+                    <div class="hopgh">
+                        <div class="hopgh_anh">
+                            <img src="<%= ds.HinhAnh%>" alt="">
+                        </div>
+                        <div class="hopgh_tensp">
+                            <%=ds.TenSP%><br>x <%=ds.SoLuong%>
+                        </div>
+                        <div class="hopgh_giatien">
+                            <%=ds.DonGia.toLocaleString('vi-VN')%>đ
+                        </div>
+                    </div>
+                    <%})%>
+                    <div class="ghichu_nut">
+                        <div class="hopghichu">
+                            Có <span class="sl"></span> được thêm
+                        </div>
+                        <div class="hopnutgiohang">
+                            <a href="/cart/gio-hang" class="nut">Xem giỏ hàng</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- hết header 2 -->
+    <!-- menu -->
+    <div class="container-fluid thanhmenu">
+        <div class="row pl-3">
+            <div class="mx-auto">
+                 <div id="nutmenu">
+                    <i class="fa fa-bars" aria-hidden="true"></i> MENU
+                </div>
+                <%if (nguoidung.TenKH) {%>
+                <ul class="tenmenu">
+                    <li><a href="/trang-chu" class="active"><i class="fa fa-home" aria-hidden="true"></i> TRANG CHỦ</a></li>
+                    <li><a href="" class="cuahang"><i class="fas fa-store-alt"></i> CỬA HÀNG</a>
+                        <ul class="menucap2">
+                            <li><a href="/products/cua-hang/dien-thoai/1"><i class="fas fa-mobile-alt"></i> Điện thoại</a></li>
+                            <li><a href="/products/cua-hang/phu-kien/1"><i class="fas fa-headphones-alt"></i> Phụ kiện</a></li>
+                            <li><a href="/products/cua-hang/op-dien-thoai/1"><i class="fa fa-mobile" aria-hidden="true"></i> Ốp</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/cart/gio-hang"><i class="fa fa-shopping-cart" aria-hidden="true"></i> GIỎ HÀNG</a></li>
+                    <li><a href="/users/tai-khoan"><i class="fas fa-user-alt"></i> TÀI KHOẢN</a></li>
+                    <li><a href="/payment/thanh-toan"><i class="fas fa-cash-register"></i> THANH TOÁN</a></li>
+                    <li><a href="/news/tin-tuc"><i class="fas fa-newspaper"></i> TIN TỨC</a></li>
+                </ul>
+                <%} else {%>
+                    <ul class="tenmenu">
+                    <li><a href="/" class="active"><i class="fa fa-home" aria-hidden="true"></i> TRANG TRỦ</a></li>
+                    <li><a href="" class="cuahang"><i class="fas fa-store-alt"></i> CỬA HÀNG</a>
+                        <ul class="menucap2">
+                            <li><a href="/products/cua-hang/dien-thoai/1"><i class="fas fa-mobile-alt"></i> Điện thoại</a></li>
+                            <li><a href="/products/cua-hang/phu-kien/1"><i class="fas fa-headphones-alt"></i> Phụ kiện</a></li>
+                            <li><a href="/products/cua-hang/op-dien-thoai/1"><i class="fa fa-mobile" aria-hidden="true"></i> Ốp</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/users/dang-nhap"><i class="fa fa-shopping-cart" aria-hidden="true"></i> GIỎ HÀNG</a></li>
+                    <li><a href="/users/dang-nhap"><i class="fas fa-user-alt"></i> TÀI KHOẢN</a></li>
+                    <li><a href="/users/dang-nhap"><i class="fas fa-cash-register"></i> THANH TOÁN</a></li>
+                    <li><a href="/news/tin-tuc"><i class="fas fa-newspaper"></i> TIN TỨC</a></li>
+                </ul>
+                <%}%>
+            </div>
+        </div>
+    </div>

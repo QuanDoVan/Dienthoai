@@ -1,0 +1,259 @@
+    <%include header%>
+    <div class="container-fluid px-4">
+        <div class="row">
+            <div class="col-md-3 col-12">
+                <div class="list_danhmuc">
+                    <div class="tieude_danhmuc"><i class="fas fa-clipboard-list    "></i> DANH MỤC</div>
+                    <ul>
+                        <%danhmuc.forEach(function(dm) {%>
+                            <li><a href="/category/categoryid=<%=dm.MaDM%>/page=1"><img src="<%= dm.HinhAnh%>" alt=""> <%= dm.TenDM%></a></li>
+                        <%})%>
+                    </ul>
+                </div>
+                <!-- <div class="col-md-3" style="height: 800px"> -->
+                    <div class="tieude_tintuc mt-3">
+                        <i class="fa fa-pencil" aria-hidden="true"></i> TIN TỨC
+                    </div>
+                    <div class="cackhoitintuc">
+                        <div class="khoitintuc">
+                            <img src="images/tintuc.jpg">
+                            <span class="tieudetin">Tài khoản & đơn hàng</span>
+                            <span class="thoigiantin">
+                                <i class="fa fa-calendar-alt" aria-hidden="true"></i> 26 Th10 2014
+                            </span>
+                        </div>
+                        <div class="khoitintuc">
+                            <img src="images/tintuc.jpg">
+                            <span class="tieudetin">Hình thức thanh toán</span>
+                            <span class="thoigiantin">
+                                <i class="fa fa-calendar-alt" aria-hidden="true"></i> 26 Th10 2014
+                            </span>
+                        </div>
+                        <div class="khoitintuc">
+                            <img src="images/tintuc.jpg">
+                            <span class="tieudetin">Cách thức mua hàng</span>
+                            <span class="thoigiantin">
+                                <i class="fa fa-calendar-alt" aria-hidden="true"></i> 26 Th10 2014
+                            </span>
+                        </div>
+                        <div class="khoitintuc">
+                            <img src="images/tintuc.jpg">
+                            <span class="tieudetin">Khuyến mại</span><br>
+                            <span class="thoigiantin">
+                                <i class="fa fa-calendar-alt" aria-hidden="true"></i> 26 Th10 2014
+                            </span>
+                        </div>
+                        <div class="khoitintuc">
+                            <img src="images/tintuc.jpg">
+                            <span class="tieudetin">Mã giảm giá</span><br>
+                            <span class="thoigiantin">
+                                <i class="fa fa-calendar-alt" aria-hidden="true"></i> 26 Th10 2014
+                            </span>
+                        </div>
+                        <div class="tieude_hotro mt-3">
+                            <i class="fa fa-pencil" aria-hidden="true"></i> HỖ TRỢ
+                        </div>
+                        <div class="khoihotro mt-3">
+                            <div class="khoihotrocon">
+                                <span class="tenhotro"><i class="fa fa-user" aria-hidden="true"></i> Nguyễn Văn A</span>
+                                <span class="dienthoaihotro"><i class="fa fa-phone" aria-hidden="true"></i> 0123456789</span>
+                                <span class="email"><i class="fa fa-envelope" aria-hidden="true"></i> NguyenVanA@gmail.com</span>
+                            </div>
+                            <div class="khoihotrocon mt-3 ">
+                                <span class="tenhotro"><i class="fa fa-user" aria-hidden="true"></i> Nguyễn Văn A</span>
+                                <span class="dienthoaihotro"><i class="fa fa-phone" aria-hidden="true"></i> 0123456789</span>
+                                <span class="email"><i class="fa fa-envelope" aria-hidden="true"></i> NguyenVanA@gmail.com</span>
+                            </div>
+                        </div>
+                    </div>
+                <!-- </div> -->
+            </div>
+            
+            <div class="col-md-9 col-12 mt-3">
+                <div class="row ">
+                    <div class="col-md-3 col-6" style="font-size: 25px; font-weight: bold;">
+                        Cửa hàng
+                    </div>
+                    <div class="col-md-9 col-6 phantrang text-right">
+                        <ul>
+                            <li><a href="">Trang chủ</a> / </li>
+                            <li>Cửa hàng</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-4 hienthiso">Hiển thị <%= start%> - <%= end%> của <%= tong.SL%> kết quả</div>
+                            <div class="col-md-8 hienthidsicon text-right">
+                                <ul>
+                                    <li class="tablinks active" data-hienthi="hienthio"><i class="fa fa-th" aria-hidden="true"></i></li>
+                                    <li class="tablinks" data-hienthi="hienthids"><i class="fa fa-list" aria-hidden="true"></i></li>
+                                    <li style="background-color: white;">
+                                        <div class="loc">
+                                            <div class="form-group">
+                                              <select class="tieuchi" name="" id="" style="font-size: 15px;">
+                                                <option value="macdinh">Thứ tự mặc định</option>
+                                                <option value="moinhat">Mới nhất</option>
+                                                <option value="gia_thap_cao">Thứ tự theo giá: Từ thấp đến cao</option>
+                                                <option value="gia_cao_thap">Thứ tự theo giá: Từ cao đến thấp</option>
+                                              </select>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>      
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-12 tabcontent" id="hienthio">
+                        <div class="row mx-auto thesp1">
+                            <%data2.forEach(function(dssp) {%>
+                            <div class="col-lg-3 col-md-4 col-6 mt-40 text-center thesp1">
+                                <!-- single-product-wrap start -->
+                                <div class="single-product-wrap">
+                                    <div class="product-image1 mx-auto">
+                                        <a href="/products/dien-thoai/<%= dssp.TenSP%>/id=<%= dssp.MaSP%>">
+                                            <img src="<%= dssp.HinhAnh%>" alt="Li's Product Image">
+                                        </a>
+                                    </div>
+                                    <div class="product_desc">
+                                        <div class="product_desc_info">
+                                            <div class="product-review">
+                                                <h5 class="manufacturer">
+                                                    <a href="/products/dien-thoai/<%= dssp.TenSP%>/id=<%= dssp.MaSP%>"><%= dssp.TenDM%></a>
+                                                </h5>
+                                                <div class="rating-box">
+                                                    <ul class="rating">
+                                                        <li><i class="fa fa-star-o"></i></li>
+                                                        <li><i class="fa fa-star-o"></i></li>
+                                                        <li><i class="fa fa-star-o"></i></li>
+                                                        <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                        <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <h4><a class="product_name" href="/products/dien-thoai/<%= dssp.TenSP%>/id=<%= dssp.MaSP%>"><%= dssp.TenSP%></a></h4>
+                                            <div class="price-box">
+                                                <span class="new-price"><%= dssp.GiaTien.toLocaleString('vi-VN')%>đ</span>
+                                            </div>
+                                        </div>
+                                        <div class="add-actions">
+                                            <ul class="add-actions-link">
+                                                <li class="add-cart active"><a href="shopping-cart.html">Add to cart</a></li>
+                                                <li><a href="/products/dien-thoai/<%= dssp.TenSP%>/id=<%= dssp.MaSP%>" title="quick view" class="quick-view-btn" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-eye"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- single-product-wrap end -->
+                            </div>
+                            <%})%>
+                        </div>
+                    </div>
+                    <div class="col-md-12 tabcontent" id="hienthids">
+                        <div class="row">
+                            <%data2.forEach(function(dssp) {%>
+                            <div class="col-md-6 mt-3">
+                                <div class="khungsp_tiep">
+                                    <a href="/products/<%= dssp.TenSP%>/id=<%= dssp.MaSP%>" class="linksp_tiep slug">
+                                        <div class="khunganh_tiep">
+                                            <img src="<%= dssp.HinhAnh%>">
+                                        </div>
+                                        <div class="khungthongtin_tiep">
+                                            <div class="product_desc">
+                                                <div class="product_desc_info kieuds">
+                                                    <div class="product-review">
+                                                        <h5 class="manufacturer">
+                                                            <a href="/products/<%= dssp.TenSP%>/id=<%= dssp.MaSP%>"><%= dssp.TenDM%></a>
+                                                        </h5>
+                                                        <div class="rating-box">
+                                                            <ul class="rating">
+                                                                <li><i class="fa fa-star-o"></i></li>
+                                                                <li><i class="fa fa-star-o"></i></li>
+                                                                <li><i class="fa fa-star-o"></i></li>
+                                                                <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                                <li class="no-star"><i class="fa fa-star-o"></i></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <h4><a class="product_name" href="/products/<%= dssp.TenSP%>/id=<%= dssp.MaSP%>"><%= dssp.TenSP%></a></h4>
+                                                    <div class="price-box">
+                                                        <span class="new-price"><%= dssp.GiaTien.toLocaleString('vi-VN')%>đ</span>
+                                                    </div>
+                                                </div>
+                                                <div class="">
+                                                    <ul class="add-actions-link">
+                                                        <li class="add-cart active"><a href="shopping-cart.html">Add to cart</a></li>
+                                                        <li><a href="/products/<%= dssp.TenSP%>/id=<%= dssp.MaSP%>" title="quick view" class="quick-view-btn" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-eye"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>  
+                            <%})%>    
+                        </div>                 
+                    </div>
+                    <div class="col-md-12">
+                        <div class="row">
+                            <% if(pages > 0) { %>
+                                <nav class="mx-auto">
+                                    <ul class="pagination" style="margin-top: auto;">
+                                     <!-- FIRST ITEM -->  
+                                    <% if(current == 1) { %> 
+                                        <li class="page-item disabled">
+                                            <a class="page-link" href="/products/cua-hang/1">First</a>
+                                        </li>
+                                    <% } else { %>
+                                        <li class="page-item">
+                                            <a class="page-link" href="/products/cua-hang/1">First</a>
+                                        </li>
+                                    <% } %>
+        
+                                        <!-- ITEMS  -->
+                                <% var i = (Number(current) > 3 ? Number(current) - 2 : 1) %> 
+                                    <% if(i !== 1) { %>
+                                        <li class="page-item disabled">
+                                            <a class="page-link" href="#">...</a>
+                                        </li>
+                                    <% } %>
+                                    <% for(; i <= (Number(current) + 2) && i <= pages; i++) { %>
+                                        <% if(i == current) { %>
+                                            <li class="page-item active">
+                                                <a class="page-link" href="/products/cua-hang/<%= i %>">
+                                                    <%= i %>
+                                                </a>
+                                            </li>
+                                        <% } else { %>
+                                            <li class="page-item">
+                                                <a class="page-link" href="/products/cua-hang/<%= i %>">
+                                                    <%= i %>
+                                                </a>
+                                            </li>
+                                        <% } %>
+                                        <% if (i == Number(current) + 2 && i < pages) { %>
+                                            <li class="page-item disabled">
+                                                <a class="page-link" href="#">...</a>
+                                            </li>
+                                        <% } %>
+                                <% } %>
+        
+                                        <!-- LAST ITEM -->
+                                <% if(current == pages) { %> 
+                                    <li class="page-item disabled">
+                                        <a class="page-link" href="#">Last</a>
+                                    </li>
+                                <% } else { %>
+                                    <li class="page-item">
+                                        <a class="page-link" href="/products/cua-hang/<%= pages %>">Last</a>
+                                    </li>
+                                <% } %>
+                                </ul>
+                            </nav>
+                        <% } %>
+                        </div>
+                    </div>
+                </div>  
+            </div>
+        </div>
+    </div>
+    <%include footer%>
